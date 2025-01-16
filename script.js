@@ -22,7 +22,6 @@ let date = document.querySelector("#date");
 date.innerHTML = `${day} ${hours}:${minutes}`;
 
 function displayWeather(response) {
-  console.log(response.data);
   let h1 = document.querySelector("h1");
   let tempElement = document.querySelector("#current-temp-temp");
   let humidityElement = document.querySelector("#current-humidity");
@@ -33,6 +32,7 @@ function displayWeather(response) {
   let icon = `<img
               src="${response.data.condition.icon_url}"
               alt="weather-icon"
+              width="90px"
           />`;
 
   iconElement.innerHTML = icon;
