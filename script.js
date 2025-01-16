@@ -22,11 +22,20 @@ let date = document.querySelector("#date");
 date.innerHTML = `${day} ${hours}:${minutes}`;
 
 function displayWeather(response) {
+  console.log(response.data);
   let h1 = document.querySelector("h1");
   let tempElement = document.querySelector("#current-temp-temp");
   let humidityElement = document.querySelector("#current-humidity");
   let descriptionElement = document.querySelector("#current-description");
   let windElement = document.querySelector("#current-wind");
+  let iconElement = document.querySelector("#icon");
+
+  let icon = `<img
+              src="${response.data.condition.icon_url}"
+              alt="weather-icon"
+          />`;
+
+  iconElement.innerHTML = icon;
 
   h1.innerHTML = response.data.city;
   tempElement.innerHTML = Math.round(response.data.temperature.current);
